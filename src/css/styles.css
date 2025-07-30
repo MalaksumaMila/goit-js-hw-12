@@ -9,12 +9,8 @@
 @import url('./base.css');
 @import url('./container.css');
 
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
 
-/* === FORM STYLES === */
+
 .form {
   display: flex;
   justify-content: center;
@@ -45,7 +41,6 @@
   background-color: #0056b3;
 }
 
-/* === GALLERY STYLES === */
 .gallery {
   list-style: none;
   padding: 20px;
@@ -54,7 +49,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
- 
+ }
 
 .gallery-item {
   background-color: #fff;
@@ -63,13 +58,16 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border: 4px solid #000000;
   
 }
+.galleryblock {
+  border: 1px solid #000000;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -80,16 +78,17 @@
   justify-content: space-between;
   padding: 10px;
   font-size: 14px;
+  text-align: center;
 }
 
 .gallery-info div {
-  flex: 1 1 45%;
+  flex: 1 45%;
   margin-bottom: 5px;
    border: 3px solid #000000;
   border-radius: 8px;
 }
 
-/* === LOADER STYLES === */
+
 .loader {
   display: block;
   width: 48px;
