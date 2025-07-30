@@ -6,7 +6,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 
 
-export async function getImagesByQuery(query) {
+export async function getImagesByQuery(query, page) {
 
     const params = new URLSearchParams ({
         key: "51545892-4b8f299c7368d58b68a280d40",
