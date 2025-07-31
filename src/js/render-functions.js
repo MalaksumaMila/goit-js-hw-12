@@ -1,14 +1,25 @@
 // Описаний у документації
-import SimpleLightbox from "simplelightbox";
+import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
-import "simplelightbox/dist/simple-lightbox.min.css";
+import 'simplelightbox/dist/simple-lightbox.min.css';
 const lightbox = new SimpleLightbox('.gallery a');
 
-const list = document.querySelector(".gallery")
-const loader = document.querySelector(".loader")
+const list = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
+const loadBtn = document.querySelector('.load-more');
 
 export function createGallery(images) {
-    const markUp = images.map( ({largeImageURL, webformatURL, tags, likes, views, comments, downloads}) => `
+  const markUp = images
+    .map(
+      ({
+        largeImageURL,
+        webformatURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => `
       <li class="galleryblock">
       <a href="${largeImageURL}">
       <img src="${webformatURL}" alt="${tags}"></a>
@@ -18,26 +29,31 @@ export function createGallery(images) {
           <li>Comments<br><strong>${comments}</strong></li>
           <li>Downloads<br><strong>${downloads}</strong></li>
         </ul></li>  `
+    )
+    .join('');
 
-    ).join("");
-
-    list.innerHTML = markUp;
-    lightbox.refresh();
+  list.insertAdjacentHTML('beforeend', markUp);
+  lightbox.refresh();
 }
 
 export function showLoader() {
-loader.classList.remove('is-hidden')
+  loader.classList.remove('is-hidden');
 }
 
 export function hideLoader() {
-loader.classList.add('is-hidden')
+  loader.classList.add('is-hidden');
 }
 
 export function clearGallery() {
-   if (list) {
+  if (list) {
     list.innerHTML = '';
   }
 }
 
-// showLoadMoreButton()   
-// hideLoadMoreButton()
+export function showLoadMoreButton() {
+  loadBtn.classList.remove('is-hidden');
+}
+
+export function hideLoadMoreButton() {
+  loadBtn.classList.add('is-hidden');
+}
