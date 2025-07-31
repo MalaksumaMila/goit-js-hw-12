@@ -42,3 +42,21 @@ return;
 
 })
 
+
+const loadMore = document.querySelector(".load-more");
+
+loadMore.addEventListener("click", onLoadMore);
+
+async function onLoadMore() {
+    page++;
+    loadMore.disabled = true;
+    
+    try {
+        const data = await getImagesByQuery(query, page);
+        list.insertAdjacentHTML("beforeend", createGallery(data.hits));
+
+        if(data.hits.length + 1 >= data.totalHits) {
+            loadMore.classList.replace("load-more", "load-more-hidden");
+        }
+    }
+}
