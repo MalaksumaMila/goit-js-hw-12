@@ -39,3 +39,5 @@ export function clearGallery() {
   }
 }
 
+// showLoadMoreButton()   
+// hideLoadMoreButton()
